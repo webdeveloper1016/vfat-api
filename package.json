@@ -1,0 +1,22 @@
+{
+  "name": "xante-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon app/server.js --unhandled-rejections=strict"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
+    "cors": "^2.8.5",
+    "ethcall": "^4.3.5",
+    "ethers": "^5.5.4",
+    "express": "^4.17.3",
+    "js-to-ts-converter": "^0.18.1",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12"
+  }
+}
