@@ -149,27 +149,7 @@ async function init_ethers() {
   try {
 
     // Modern dapp browsers...
-    if (walletProvider) {
-      App.web3Provider = walletProvider
-      App.provider = new ethers.providers.Web3Provider(walletProvider)
-      try {
-        // Request account access
-        const accounts = await walletProvider.request({ method: 'eth_requestAccounts' })
-        App.YOUR_ADDRESS = accounts[0];
-      } catch (error) {
-        // User denied account access...
-        console.error('User denied account access')
-      }
-    }
-    // If no injected web3 instance is detected, fall back to backup node
-    else {
-      App.provider = new ethers.providers.JsonRpcProvider(atob(window.ETHEREUM_NODE_URL))
-      isMetaMaskInstalled = false
-      _print(
-        "You don't have MetaMask installed! Falling back to backup node...\n (will likely to fail. Please install MetaMask extension).\n"
-      )
-      sleep(10)
-    }
+    
     App.ethcallProvider = new ethcall.Provider();
     await App.ethcallProvider.init(App.provider);
 
@@ -214,6 +194,7 @@ async function init_ethers() {
 
   return App
 }
+
 
 const switchNetwork = async function(network) {
     if (network.chainId === '0x1') {
@@ -3836,3 +3817,6 @@ function getChainExplorerUrl(chain, address){
       return `https://polygonscan.com/address/${address}`;
   }
 }
+
+
+module.exports = init_ethers;

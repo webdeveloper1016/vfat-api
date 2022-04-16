@@ -1,6 +1,8 @@
 // import express from 'express';
 // require ('../../utils/helper');
-const {init_ethers} = require('../../utils/helper');
+const init_ethers = require('../../utils/helper');
+
+
 // import ethcall from "ethcall";
 
 const A_TOKEN_ABI = [
@@ -1352,6 +1354,7 @@ const BTokenAddresses = [
 
 async function main() {
   const App = await init_ethers()
+  print("________________")
   _print(`Initialized ${App.YOUR_ADDRESS}\n`)
   _print('Reading smart contracts...\n')
 
